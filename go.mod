@@ -7,6 +7,7 @@ require (
 	github.com/crossplane/crossplane-tools v0.0.0-20220310165030-1f43fc12793e
 	github.com/crossplane/terrajet v0.4.0-rc.0.0.20220809090519-689dd7ae3fff
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
+	github.com/itera-io/taikungoclient v0.0.0-20220916123218-9a76a72b785a
 	github.com/pkg/errors v0.9.1
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	k8s.io/apimachinery v0.23.0
@@ -82,7 +83,6 @@ require (
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
-	github.com/itera-io/taikungoclient v0.0.0-20220916123218-9a76a72b785a // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

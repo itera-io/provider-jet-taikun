@@ -14,6 +14,7 @@ echo "$RESOURCE"
 
 # Create
 kubectl apply -f "$DEST"
+printf "    -> Creating...\n"
 
 # Wait and get ref
 sleep "$WAITING"
@@ -23,7 +24,6 @@ source get_ref.sh
 go run test_created.go
 OUT="$?"
 
-printf "    -> Creating...\n"
 if [ "$OUT" -eq "0" ]
 then
     printf "    ${GREEN}PASSED !!!${WHITE}\n"
@@ -33,11 +33,12 @@ fi
 
 # Destroy
 kubectl delete -f "$DEST"
+printf "    -> Destroying...\n"
+
 # Check if destroyed
 go run test_destroyed.go
 OUT="$?"
 
-printf "    -> Destroying...\n"
 if [ "$OUT" -eq "0" ]
 then
     printf "    ${GREEN}PASSED !!!${WHITE}\n"
