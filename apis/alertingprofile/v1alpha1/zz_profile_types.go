@@ -93,7 +93,7 @@ type ProfileParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// The ID of the organization which owns the profile.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/organization/v1alpha1.Organization
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/organization/v1alpha1.Organization
 	// +kubebuilder:validation:Optional
 	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
 
@@ -108,7 +108,7 @@ type ProfileParameters struct {
 	Reminder *string `json:"reminder" tf:"reminder,omitempty"`
 
 	// The ID of the Slack configuration to notify. Defaults to `0`.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/slackconfiguration/v1alpha1.Configuration
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/slackconfiguration/v1alpha1.Configuration
 	// +kubebuilder:validation:Optional
 	SlackConfigurationID *string `json:"slackConfigurationId,omitempty" tf:"slack_configuration_id,omitempty"`
 

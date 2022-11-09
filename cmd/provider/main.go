@@ -36,12 +36,12 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/nivraph/provider-jet-taikun/apis"
-	"github.com/nivraph/provider-jet-taikun/apis/v1alpha1"
-	"github.com/nivraph/provider-jet-taikun/config"
-	"github.com/nivraph/provider-jet-taikun/internal/clients"
-	"github.com/nivraph/provider-jet-taikun/internal/controller"
-	"github.com/nivraph/provider-jet-taikun/internal/features"
+	"github.com/itera-io/provider-jet-taikun/apis"
+	"github.com/itera-io/provider-jet-taikun/apis/v1alpha1"
+	"github.com/itera-io/provider-jet-taikun/config"
+	"github.com/itera-io/provider-jet-taikun/internal/clients"
+	"github.com/itera-io/provider-jet-taikun/internal/controller"
+	"github.com/itera-io/provider-jet-taikun/internal/features"
 )
 
 func main() {

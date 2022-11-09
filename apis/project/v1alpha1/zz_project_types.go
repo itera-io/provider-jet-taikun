@@ -85,7 +85,7 @@ type ProjectObservation struct {
 type ProjectParameters struct {
 
 	// ID of the project's access profile. Defaults to the default access profile of the project's organization.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/accessprofile/v1alpha1.Profile
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/accessprofile/v1alpha1.Profile
 	// +kubebuilder:validation:Optional
 	AccessProfileID *string `json:"accessProfileId,omitempty" tf:"access_profile_id,omitempty"`
 
@@ -96,7 +96,7 @@ type ProjectParameters struct {
 	AccessProfileIDSelector *v1.Selector `json:"accessProfileIdSelector,omitempty" tf:"-"`
 
 	// ID of the project's alerting profile.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/alertingprofile/v1alpha1.Profile
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/alertingprofile/v1alpha1.Profile
 	// +kubebuilder:validation:Optional
 	AlertingProfileID *string `json:"alertingProfileId,omitempty" tf:"alerting_profile_id,omitempty"`
 
@@ -111,7 +111,7 @@ type ProjectParameters struct {
 	AutoUpgrade *bool `json:"autoUpgrade,omitempty" tf:"auto_upgrade,omitempty"`
 
 	// ID of the backup credential. If unspecified, backups are disabled.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/backupcredential/v1alpha1.Credential
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/backupcredential/v1alpha1.Credential
 	// +kubebuilder:validation:Optional
 	BackupCredentialID *string `json:"backupCredentialId,omitempty" tf:"backup_credential_id,omitempty"`
 
@@ -122,7 +122,7 @@ type ProjectParameters struct {
 	BackupCredentialIDSelector *v1.Selector `json:"backupCredentialIdSelector,omitempty" tf:"-"`
 
 	// ID of the cloud credential used to create the project's servers.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/cloudcredential/v1alpha1.Credential
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/cloudcredential/v1alpha1.Credential
 	// +kubebuilder:validation:Optional
 	CloudCredentialID *string `json:"cloudCredentialId,omitempty" tf:"cloud_credential_id,omitempty"`
 
@@ -149,7 +149,7 @@ type ProjectParameters struct {
 	Images []*string `json:"images,omitempty" tf:"images,omitempty"`
 
 	// ID of the project's Kubernetes profile. Defaults to the default Kubernetes profile of the project's organization.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/kubernetesprofile/v1alpha1.Profile
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/kubernetesprofile/v1alpha1.Profile
 	// +kubebuilder:validation:Optional
 	KubernetesProfileID *string `json:"kubernetesProfileId,omitempty" tf:"kubernetes_profile_id,omitempty"`
 
@@ -176,7 +176,7 @@ type ProjectParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// ID of the organization which owns the project.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/organization/v1alpha1.Organization
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/organization/v1alpha1.Organization
 	// +kubebuilder:validation:Optional
 	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
 
@@ -187,7 +187,7 @@ type ProjectParameters struct {
 	OrganizationIDSelector *v1.Selector `json:"organizationIdSelector,omitempty" tf:"-"`
 
 	// ID of the Policy profile. If unspecified, Gatekeeper is disabled.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/policyprofile/v1alpha1.Profile
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/policyprofile/v1alpha1.Profile
 	// +kubebuilder:validation:Optional
 	PolicyProfileID *string `json:"policyProfileId,omitempty" tf:"policy_profile_id,omitempty"`
 

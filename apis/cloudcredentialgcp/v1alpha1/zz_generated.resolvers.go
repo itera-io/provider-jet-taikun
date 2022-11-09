@@ -20,8 +20,8 @@ package v1alpha1
 import (
 	"context"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
-	v1alpha1 "github.com/nivraph/provider-jet-taikun/apis/billingcredential/v1alpha1"
-	v1alpha11 "github.com/nivraph/provider-jet-taikun/apis/organization/v1alpha1"
+	v1alpha1 "github.com/itera-io/provider-jet-taikun/apis/billingcredential/v1alpha1"
+	v1alpha11 "github.com/itera-io/provider-jet-taikun/apis/organization/v1alpha1"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )

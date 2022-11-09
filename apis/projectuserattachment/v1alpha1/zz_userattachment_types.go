@@ -34,7 +34,7 @@ type UserAttachmentObservation struct {
 type UserAttachmentParameters struct {
 
 	// ID of the project.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/project/v1alpha1.Project
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/project/v1alpha1.Project
 	// +kubebuilder:validation:Optional
 	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 
@@ -45,7 +45,7 @@ type UserAttachmentParameters struct {
 	ProjectIDSelector *v1.Selector `json:"projectIdSelector,omitempty" tf:"-"`
 
 	// ID of the user.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/user/v1alpha1.User
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/user/v1alpha1.User
 	// +kubebuilder:validation:Optional
 	UserID *string `json:"userId,omitempty" tf:"user_id,omitempty"`
 

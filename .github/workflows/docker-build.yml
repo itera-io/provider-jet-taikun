@@ -9,21 +9,17 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      -
-        name: Login to GitLab
+      - name: Login to GitLab
         uses: docker/login-action@v2
         with:
           registry: infra.itera.io:5000
           username: ${{ secrets.GITLAB_USERNAME }}
           password: ${{ secrets.GITLAB_TOKEN }}
-      -
-        name: General Setup
+      - name: General Setup
         run: |
           sudo apt-get update && \
           sudo apt-get install -yy -q --no-install-recommends \
@@ -40,16 +36,14 @@ jobs:
           sudo apt-get upgrade -y && \
           sudo apt-get autoremove -y && \
           sudo apt-get clean
-      -
-        name: Docker Install
+      - name: Docker Install
         run: |
           sudo apt install runc
           sudo apt install containerd
           sudo apt-get install docker.io -y
           sudo snap install docker
           sudo systemctl status docker
-      -
-        name: Go Set up
+      - name: Go Set up
         run: |
           GO_VERSION=1.17.5 && \
           GO_HASH=bd78114b0d441b029c8fe0341f4910370925a4d270a6a590668840675b0c653e && \
@@ -58,21 +52,18 @@ jobs:
           sudo tar -C /usr/local -xzf golang.tar.gz && \
           rm golang.tar.gz
           PATH=/usr/local/go/bin:$PATH
-      -
-        name: Build provider's images
+      - name: Build provider's images
         run: |
-          git clone https://github.com/nivraph/provider-jet-taikun.git
+          git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
           sudo make build BUILD_REGISTRY=crossplane
-      - 
-        name: "Set latest tag"
+      - name: "Set latest tag"
         id: set-latest-tag
         run: |
           echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $GITHUB_ENV
           echo "LATEST_TAG = ${{ env.latest_tag }}"
-      -
-        name: Push provider's images
+      - name: Push provider's images
         env:
           CONTROLLER_IMG: "crossplane/provider-jet-taikun-controller-amd64"
           NORMAL_IMG: "crossplane/provider-jet-taikun-amd64"
@@ -80,6 +71,3 @@ jobs:
         run: |
           docker push infra.itera.io:5000/libvirt-mgmt-poc/taikun/"$CONTROLLER_IMG":"$LATEST_TAG
           docker push infra.itera.io:5000/libvirt-mgmt-poc/taikun/"$NORMAL_IMG":"$LATEST_TAG
-          
-          
-        

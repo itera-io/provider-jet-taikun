@@ -25,7 +25,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 	"github.com/crossplane/terrajet/pkg/controller"
 
-	"github.com/nivraph/provider-jet-taikun/apis/v1alpha1"
+	"github.com/itera-io/provider-jet-taikun/apis/v1alpha1"
 )
 
 // Setup adds a controller that reconciles ProviderConfigs by accounting for

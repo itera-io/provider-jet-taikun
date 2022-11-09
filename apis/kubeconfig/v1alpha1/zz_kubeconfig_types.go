@@ -46,7 +46,7 @@ type KubeconfigParameters struct {
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 
 	// ID of the kubeconfig's project.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/project/v1alpha1.Project
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/project/v1alpha1.Project
 	// +kubebuilder:validation:Optional
 	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 
@@ -61,7 +61,7 @@ type KubeconfigParameters struct {
 	Role *string `json:"role" tf:"role,omitempty"`
 
 	// ID of the kubeconfig's user, if the kubeconfig is personal.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/user/v1alpha1.User
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/user/v1alpha1.User
 	// +kubebuilder:validation:Optional
 	UserID *string `json:"userId,omitempty" tf:"user_id,omitempty"`
 

@@ -50,7 +50,7 @@ type PolicyParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// The ID of the project.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/project/v1alpha1.Project
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/project/v1alpha1.Project
 	// +kubebuilder:validation:Optional
 	ProjectID *string `json:"projectId,omitempty" tf:"project_id,omitempty"`
 

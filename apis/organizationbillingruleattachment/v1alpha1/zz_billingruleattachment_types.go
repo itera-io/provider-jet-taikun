@@ -34,7 +34,7 @@ type BillingRuleAttachmentObservation struct {
 type BillingRuleAttachmentParameters struct {
 
 	// ID of the billing rule.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/billingrule/v1alpha1.Rule
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/billingrule/v1alpha1.Rule
 	// +kubebuilder:validation:Optional
 	BillingRuleID *string `json:"billingRuleId,omitempty" tf:"billing_rule_id,omitempty"`
 
@@ -49,7 +49,7 @@ type BillingRuleAttachmentParameters struct {
 	DiscountRate *float64 `json:"discountRate,omitempty" tf:"discount_rate,omitempty"`
 
 	// ID of the organisation.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/organization/v1alpha1.Organization
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/organization/v1alpha1.Organization
 	// +kubebuilder:validation:Optional
 	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
 

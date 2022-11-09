@@ -55,7 +55,7 @@ type RuleObservation struct {
 type RuleParameters struct {
 
 	// ID of the billing credential.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/billingcredential/v1alpha1.Credential
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/billingcredential/v1alpha1.Credential
 	// +kubebuilder:validation:Optional
 	BillingCredentialID *string `json:"billingCredentialId,omitempty" tf:"billing_credential_id,omitempty"`
 

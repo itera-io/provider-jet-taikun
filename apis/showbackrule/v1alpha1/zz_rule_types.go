@@ -76,7 +76,7 @@ type RuleParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// The ID of the organization which owns the showback rule.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/organization/v1alpha1.Organization
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/organization/v1alpha1.Organization
 	// +kubebuilder:validation:Optional
 	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
 
@@ -95,7 +95,7 @@ type RuleParameters struct {
 	ProjectAlertLimit *float64 `json:"projectAlertLimit,omitempty" tf:"project_alert_limit,omitempty"`
 
 	// ID of the showback credential.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/showbackcredential/v1alpha1.Credential
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/showbackcredential/v1alpha1.Credential
 	// +kubebuilder:validation:Optional
 	ShowbackCredentialID *string `json:"showbackCredentialId,omitempty" tf:"showback_credential_id,omitempty"`
 

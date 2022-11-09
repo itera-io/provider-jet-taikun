@@ -61,7 +61,7 @@ jobs:
           PATH=/usr/local/go/bin:$PATH
       - name: Build provider's images
         run: |
-          git clone https://github.com/nivraph/provider-jet-taikun.git
+          git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
           sudo make all

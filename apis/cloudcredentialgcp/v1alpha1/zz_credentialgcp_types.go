@@ -38,7 +38,7 @@ type CredentialGCPObservation struct {
 type CredentialGCPParameters struct {
 
 	// The ID of the GCP credential's billing account. Conflicts with: `import_project`.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/billingcredential/v1alpha1.Credential
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/billingcredential/v1alpha1.Credential
 	// +kubebuilder:validation:Optional
 	BillingAccountID *string `json:"billingAccountId,omitempty" tf:"billing_account_id,omitempty"`
 
@@ -69,7 +69,7 @@ type CredentialGCPParameters struct {
 	Name *string `json:"name" tf:"name,omitempty"`
 
 	// The ID of the organization which owns the GCP credential.
-	// +crossplane:generate:reference:type=github.com/nivraph/provider-jet-taikun/apis/organization/v1alpha1.Organization
+	// +crossplane:generate:reference:type=github.com/itera-io/provider-jet-taikun/apis/organization/v1alpha1.Organization
 	// +kubebuilder:validation:Optional
 	OrganizationID *string `json:"organizationId,omitempty" tf:"organization_id,omitempty"`
 

@@ -23,12 +23,12 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	resources "github.com/nivraph/provider-jet-taikun/config/resources"
+	resources "github.com/itera-io/provider-jet-taikun/config/resources"
 )
 
 const (
 	resourcePrefix = "taikun"
-	modulePath     = "github.com/nivraph/provider-jet-taikun"
+	modulePath     = "github.com/itera-io/provider-jet-taikun"
 )
 
 //go:embed schema.json
