@@ -58,7 +58,7 @@ jobs:
           cd provider-jet-taikun
           echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $GITHUB_ENV
           make submodules
-          sudo make build BUILD_REGISTRY=ghcr.io/itera-io VERSION=${{ env.latest_tag }}"
+          sudo make build BUILD_REGISTRY=ghcr.io/itera-io VERSION=${{ env.latest_tag }}
       - name: Push provider's images
         env:
           CONTROLLER_IMG: "ghcr.io/itera-io/provider-jet-taikun-controller-amd64"
