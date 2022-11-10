@@ -16,7 +16,7 @@ jobs:
       - name: Login to GitLab
         uses: docker/login-action@v2
         with:
-          registry: infra.itera.io:5000
+          registry: infra.itera.io:5000/libvirt-mgmt-poc
           username: ${{ secrets.GITLAB_USERNAME }}
           password: ${{ secrets.GITLAB_TOKEN }}
       - name: General Setup
@@ -69,5 +69,4 @@ jobs:
           NORMAL_IMG: "crossplane/provider-jet-taikun-amd64"
           LATEST_TAG: ${{ env.latest_tag }}
         run: |
-          docker push infra.itera.io:5000/libvirt-mgmt-poc/taikun/"$CONTROLLER_IMG":"$LATEST_TAG
-          docker push infra.itera.io:5000/libvirt-mgmt-poc/taikun/"$NORMAL_IMG":"$LATEST_TAG
+          echo $LATEST_TAG
