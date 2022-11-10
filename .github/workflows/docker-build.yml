@@ -56,10 +56,9 @@ jobs:
         run: |
           git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
-          make submodules
-          sudo make build BUILD_REGISTRY=ghcr.io/itera-io
           echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $GITHUB_ENV
-          echo "LATEST_TAG = ${{ env.latest_tag }}"
+          make submodules
+          sudo make build BUILD_REGISTRY=ghcr.io/itera-io VERSION=${{ env.latest_tag }}"
       - name: Push provider's images
         env:
           CONTROLLER_IMG: "ghcr.io/itera-io/provider-jet-taikun-controller-amd64"
