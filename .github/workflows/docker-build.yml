@@ -62,8 +62,8 @@ jobs:
           echo "LATEST_TAG = ${{ env.latest_tag }}"
       - name: Push provider's images
         env:
-          CONTROLLER_IMG: "itera-io/provider-jet-taikun-controller-amd64"
-          NORMAL_IMG: "itera-io/provider-jet-taikun-amd64"
+          CONTROLLER_IMG: "ghcr.io/itera-io/provider-jet-taikun-controller-amd64"
+          NORMAL_IMG: "ghcr.io/itera-io/provider-jet-taikun-amd64"
           LATEST_TAG: ${{ env.latest_tag }}
         run: |
           echo $LATEST_TAG
