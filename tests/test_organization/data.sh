@@ -8,6 +8,7 @@ DEST=$PRE$RESOURCE$END
 WAITING=55
 
 export CP_ORG_NAME="$RESOURCE_NAME"-"$RANDOM"
+echo -n "$CP_ORG_NAME" > ref
 export CP_ORG_DESCRIPTION=test-organization-desc
 export CP_ORG_DISCOUNT=42
 export CP_ORG_CITY=test-organization-city

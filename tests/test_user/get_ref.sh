@@ -23,7 +23,7 @@ do
 
     READY=`grep -o True out | wc -l`
 
-    sed -i "s/.* \([0-9]\+\)\(\/[0-9]\+\)\? .*/\1/g" "out"
+    sed -i "s/.* \([a-z0-9-]\+\) .*/\1/g" "out"
 
     CONTENT_AFTER=`cat out`
 

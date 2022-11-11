@@ -17,7 +17,6 @@ kubectl apply -f "$DEST"
 printf "    -> Creating...\n"
 
 # Wait and get ref
-sleep "$WAITING"
 source get_ref.sh
 
 # Check if created
