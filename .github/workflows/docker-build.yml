@@ -69,5 +69,5 @@ jobs:
           echo $NORMAL_IMG
           docker tag $CONTROLLER_IMG $CONTROLLER_IMG:$LATEST_TAG
           docker tag $NORMAL_IMG $NORMAL_IMG:$LATEST_TAG
-          ls
-          #sudo make publish VERSION=latest
+          cd provider-jet-taikun
+          sudo make img.release.publish VERSION=latest
