@@ -7,13 +7,13 @@ PROJECT_REPO := github.com/itera-io/$(PROJECT_NAME)
 export TERRAFORM_VERSION := 1.1.6
 
 export TERRAFORM_PROVIDER_SOURCE := itera-io/taikun
-export TERRAFORM_PROVIDER_VERSION := 1.4.0
+export TERRAFORM_PROVIDER_VERSION := 1.4.1
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-taikun
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/itera-io/terraform-provider-taikun/releases/download/v1.4.0/
-export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-taikun_v1.4.0
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/itera-io/terraform-provider-taikun/releases/download/v1.4.1/
+export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-taikun_v1.4.1
 
 
-PLATFORMS ?= linux_amd64 linux_arm64
+PLATFORMS ?= linux_amd64
 
 # -include will silently skip missing files, which allows us
 # to load those files with a target in the Makefile. If only
@@ -52,7 +52,7 @@ GO111MODULE = on
 # ====================================================================================
 # Setup Images
 
-DOCKER_REGISTRY ?= crossplane
+DOCKER_REGISTRY ?= raphidock
 IMAGES = provider-jet-taikun provider-jet-taikun-controller
 -include build/makelib/image.mk
 
