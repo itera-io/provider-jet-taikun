@@ -10,11 +10,5 @@ cover.out
 .vscode/
 .idea/
 
-# ignored terraform ressources
-package/crds/cloudcredentialaws.taikun.jet.crossplane.io_credentialaws.yaml
-package/crds/cloudcredentialazure.taikun.jet.crossplane.io_credentialazures.yaml
-package/crds/cloudcredentialgcp.taikun.jet.crossplane.io_credentialgcps.yaml
-package/crds/cloudcredentialopenstack.taikun.jet.crossplane.io_credentialopenstacks.yaml
-
 # other
 authentification.sh
