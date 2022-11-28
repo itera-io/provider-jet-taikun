@@ -10,6 +10,12 @@ Taikun API.
 Install the provider by using the following command:
 
 ```
+make install
+```
+
+or
+
+```
 kubectl apply -f examples/install.yaml
 ```
 
