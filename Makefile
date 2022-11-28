@@ -131,6 +131,9 @@ run: go.build
 docs:
 	@./docs/generate/generate.sh
 
+install:
+	@kubectl apply -f examples/install.yaml
+
 .PHONY: cobertura submodules fallthrough run crds.clean docs
 
 # ====================================================================================
