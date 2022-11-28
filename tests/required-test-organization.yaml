@@ -1,0 +1,15 @@
+apiVersion: organization.taikun.jet.crossplane.io/v1alpha1
+kind: Organization
+metadata:
+  name: test-all-organization-att
+spec:
+  forProvider:
+    name: "test-all-organization-att"
+    fullName: "test-all-organization-att"
+    discountRate: 42
+    city: "Praha"
+    billingEmail: "testorg@empty.com"
+    email: "testorg@empty2.com"
+    phone: "+4405241989"
+  providerConfigRef:
+    name: default
