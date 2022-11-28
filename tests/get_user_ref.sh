@@ -19,7 +19,7 @@ do
 
     #REF=`cat ref`
     kubectl get managed > out_raw
-    grep "test-all-user" "out_raw" > out
+    grep "test-alexis-user" "out_raw" > out
     CONTENT=`cat out`
 
     #echo "$CONTENT"

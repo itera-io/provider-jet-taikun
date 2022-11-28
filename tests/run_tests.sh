@@ -38,4 +38,11 @@ done < ".out_test"
 
 rm .out*
 rm secret*
+
+kubectl delete -f required-test-cloud-credential.yaml
+
 rm required-test-cloud-credential.yaml
+
+kubectl delete -f required-test-kubernetes-profile.yaml
+kubectl delete -f required-test-user.yaml
+kubectl delete -f required-test-organization.yaml

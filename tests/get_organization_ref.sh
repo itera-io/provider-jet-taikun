@@ -17,7 +17,7 @@ do
     fi
 
     kubectl get managed > out_raw
-    grep "test-all-organization-att" "out_raw" > out
+    grep "test-alexis-org-attach" "out_raw" > out
     CONTENT=`cat out`
 
     READY=`grep -o True out | wc -l`

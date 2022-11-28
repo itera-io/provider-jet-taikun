@@ -2,7 +2,19 @@
 
 export JUMP_TIME=2
 
-#echo -n "test-all-organization-attach" > ref
+cp example_required-test-organization.yaml required-test-organization.yaml
+cp example_required-test-user.yaml required-test-user.yaml
+cp example_required-test-kubernetes-profile.yaml required-test-kubernetes-profile.yaml
+cp example_required-test-cloud-credential.yaml required-test-cloud-credential.yaml
+
+
+find . -type f -exec sed -i "s^default^$PROVIDER_NAME^g" {} \;
+
+find get_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \;
+find required* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \;
+find test_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \;
+
+#echo -n "test-USER_TEST-org-attachach" > ref
 
 # CREATE SECRET FOR OPENSTACK CLOUD PASSWORD
 cp example_secret_cloud.yaml secret_cloud.yaml
@@ -25,9 +37,8 @@ kubectl apply -f secret_cloud.yaml
 
 
 
-# CREATE YAML FOR CLOUD CREDENTIAL
+# CONFIGURE YAML FOR CLOUD CREDENTIAL
 
-cp example_required-test-cloud-credential.yaml required-test-cloud-credential.yaml
 sed -i "s/USER/$OPENSTACK_CLOUD_USER/g" required-test-cloud-credential.yaml
 
 

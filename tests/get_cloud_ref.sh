@@ -24,7 +24,7 @@ do
     fi
 
     kubectl get managed > out_raw
-    grep "test-all-cloud-credentials" "out_raw" > out
+    grep "test-alexis-cloud" "out_raw" > out
     CONTENT=`cat out`
 
     READY=`grep -o True out | wc -l`
