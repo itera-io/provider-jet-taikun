@@ -16,12 +16,12 @@ kubectl apply -f secret_cloud.yaml
 
 # CREATE SECRET FOR PROMETHEUS PASSWORD
 
-cp example_secret_showback.yaml secret_showback.yaml
-echo -n "$PROMETHEUS_PASSWORD" | base64 > passwordb
-PROMETHEUS_PASSWORD_B=`cat passwordb`
-rm passwordb
-sed -i "s/PASSWORD/$PROMETHEUS_PASSWORD_B/g" secret_showback.yaml
-kubectl apply -f secret_showback.yaml
+#cp example_secret_showback.yaml secret_showback.yaml
+#echo -n "$PROMETHEUS_PASSWORD" | base64 > passwordb
+#PROMETHEUS_PASSWORD_B=`cat passwordb`
+#rm passwordb
+#sed -i "s/PASSWORD/$PROMETHEUS_PASSWORD_B/g" secret_showback.yaml
+#kubectl apply -f secret_showback.yaml
 
 
 

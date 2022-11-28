@@ -36,5 +36,6 @@ while read curr; do
     cd ..
 done < ".out_test"
 
+rm .out*
 rm secret*
 rm required-test-cloud-credential.yaml
