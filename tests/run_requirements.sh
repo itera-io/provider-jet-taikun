@@ -8,11 +8,12 @@ cp example_required-test-kubernetes-profile.yaml required-test-kubernetes-profil
 cp example_required-test-cloud-credential.yaml required-test-cloud-credential.yaml
 
 
-find . -type f -exec sed -i "s^default^$PROVIDER_NAME^g" {} \;
+find required* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
+find test_* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
 
-find get_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \;
-find required* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \;
-find test_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \;
+find get_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
+find required* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
+find test_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
 
 #echo -n "test-USER_TEST-org-attachach" > ref
 

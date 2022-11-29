@@ -10,4 +10,4 @@ spec:
     organizationIdRef:
         name: "test-USER_TEST-org-attach"
   providerConfigRef:
-    name: default
+    name: PROVIDER 

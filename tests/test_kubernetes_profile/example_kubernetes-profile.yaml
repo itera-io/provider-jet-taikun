@@ -11,4 +11,4 @@ spec:
     loadBalancingSolution: "Octavia"
     uniqueClusterName: true
   providerConfigRef:
-    name: default
+    name: default 
