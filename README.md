@@ -1,3 +1,5 @@
+# THIS REPOSITORY IS DEPRECATED ! PLEASE SEE TO THE NEW VERSION [HERE](https://github.com/itera-io/upjet-provider-taikun).
+
 # Terrajet Taikun Provider
 
 `provider-jet-taikun` is a [Crossplane](https://crossplane.io/) provider that
