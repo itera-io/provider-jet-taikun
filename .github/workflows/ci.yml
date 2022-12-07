@@ -57,6 +57,7 @@ jobs:
         run: |
           export GO111MODULE=on
           export GOROOT=/usr/local/go
+          export GOPATH=/home/runner/work/provider-jet-taikun/provider-jet-taikun/provider-jet-taikun
           go env
           git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
