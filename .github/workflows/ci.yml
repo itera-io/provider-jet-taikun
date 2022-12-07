@@ -63,7 +63,7 @@ jobs:
           git clone -b ${{ github.ref_name }} --single-branch https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
-          make build
+          sudo make build
       - name: Lint
         run: |
           make lint
