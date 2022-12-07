@@ -68,6 +68,7 @@ jobs:
           make submodules
           make all
       - name: Lint
+        run: |
           make lint
 
   detect-noop:
