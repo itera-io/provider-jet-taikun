@@ -54,16 +54,16 @@ jobs:
           sudo tar -xvf go1.19.linux-amd64.tar.gz
           sudo cp go/bin/go /usr/bin/
           sudo mv go /usr/local
-          PATH=/usr/local/go/bin:$PATH
       - name: Build provider's images
         run: |
           go version
           sudo go version
           export GOROOT=/usr/local/go
+          echo ${{ github.ref_name }}
           git clone -b ${{ github.ref_name }} --single-branch https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
-          sudo make build
+          make build
       - name: Lint
         run: |
           make lint
