@@ -55,6 +55,7 @@ jobs:
           sudo mv go /usr/local
       - name: Build provider's images
         run: |
+          go version
           export GOROOT=/usr/local/go
           git clone -b ${{ github.ref_name }} --single-branch https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
