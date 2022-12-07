@@ -57,10 +57,11 @@ jobs:
         run: |
           go version
           sudo go version
+          export GOROOT=/usr/local/go
           git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
-          sudo make all
+          make all
       - name: Lint
         run: |
           make lint
