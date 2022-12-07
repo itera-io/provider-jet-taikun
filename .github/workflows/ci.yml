@@ -56,6 +56,8 @@ jobs:
           sudo mv go /usr/local
       - name: Build provider's images
         run: |
+          go version
+          sudo go version
           git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
