@@ -208,7 +208,7 @@ func (in *RuleParameters) DeepCopyInto(out *RuleParameters) {
 	if in.OrganizationIDRef != nil {
 		in, out := &in.OrganizationIDRef, &out.OrganizationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.OrganizationIDSelector != nil {
 		in, out := &in.OrganizationIDSelector, &out.OrganizationIDSelector
@@ -233,7 +233,7 @@ func (in *RuleParameters) DeepCopyInto(out *RuleParameters) {
 	if in.ShowbackCredentialIDRef != nil {
 		in, out := &in.ShowbackCredentialIDRef, &out.ShowbackCredentialIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.ShowbackCredentialIDSelector != nil {
 		in, out := &in.ShowbackCredentialIDSelector, &out.ShowbackCredentialIDSelector

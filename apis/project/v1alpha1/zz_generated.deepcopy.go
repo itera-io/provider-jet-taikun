@@ -254,7 +254,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.AccessProfileIDRef != nil {
 		in, out := &in.AccessProfileIDRef, &out.AccessProfileIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.AccessProfileIDSelector != nil {
 		in, out := &in.AccessProfileIDSelector, &out.AccessProfileIDSelector
@@ -269,7 +269,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.AlertingProfileIDRef != nil {
 		in, out := &in.AlertingProfileIDRef, &out.AlertingProfileIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.AlertingProfileIDSelector != nil {
 		in, out := &in.AlertingProfileIDSelector, &out.AlertingProfileIDSelector
@@ -289,7 +289,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.BackupCredentialIDRef != nil {
 		in, out := &in.BackupCredentialIDRef, &out.BackupCredentialIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.BackupCredentialIDSelector != nil {
 		in, out := &in.BackupCredentialIDSelector, &out.BackupCredentialIDSelector
@@ -304,7 +304,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.CloudCredentialIDRef != nil {
 		in, out := &in.CloudCredentialIDRef, &out.CloudCredentialIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.CloudCredentialIDSelector != nil {
 		in, out := &in.CloudCredentialIDSelector, &out.CloudCredentialIDSelector
@@ -351,7 +351,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.KubernetesProfileIDRef != nil {
 		in, out := &in.KubernetesProfileIDRef, &out.KubernetesProfileIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.KubernetesProfileIDSelector != nil {
 		in, out := &in.KubernetesProfileIDSelector, &out.KubernetesProfileIDSelector
@@ -386,7 +386,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.OrganizationIDRef != nil {
 		in, out := &in.OrganizationIDRef, &out.OrganizationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.OrganizationIDSelector != nil {
 		in, out := &in.OrganizationIDSelector, &out.OrganizationIDSelector
@@ -401,7 +401,7 @@ func (in *ProjectParameters) DeepCopyInto(out *ProjectParameters) {
 	if in.PolicyProfileIDRef != nil {
 		in, out := &in.PolicyProfileIDRef, &out.PolicyProfileIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.PolicyProfileIDSelector != nil {
 		in, out := &in.PolicyProfileIDSelector, &out.PolicyProfileIDSelector

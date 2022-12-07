@@ -183,7 +183,7 @@ func (in *RuleParameters) DeepCopyInto(out *RuleParameters) {
 	if in.BillingCredentialIDRef != nil {
 		in, out := &in.BillingCredentialIDRef, &out.BillingCredentialIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.BillingCredentialIDSelector != nil {
 		in, out := &in.BillingCredentialIDSelector, &out.BillingCredentialIDSelector
