@@ -1,7 +1,7 @@
-# Terrajet Taikun Provider
+# Upjet Taikun Provider
 
 `provider-jet-taikun` is a [Crossplane](https://crossplane.io/) provider that
-is built using [Terrajet](https://github.com/upbound/upjet) code
+is built using [Upjet](https://github.com/upbound/upjet) code
 generation tools and exposes XRM-conformant managed resources for the
 Taikun API.
 
