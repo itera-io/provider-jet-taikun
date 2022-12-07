@@ -55,13 +55,13 @@ jobs:
           sudo mv go /usr/local
       - name: Build provider's images
         run: |
-          go version
-          sudo go version
+          go env
           export GOROOT=/usr/local/go
-          git clone https://github.com/itera-io/provider-jet-taikun.git
+          git clone -b ${{ github.ref_name }} --single-branch https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
+          git branch
           make submodules
-          make all
+          make build
       - name: Lint
         run: |
           make lint
