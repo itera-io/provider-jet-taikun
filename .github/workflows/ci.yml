@@ -56,7 +56,7 @@ jobs:
       - name: Build provider's images
         run: |
           export GOROOT=/usr/local/go
-          git clone https://github.com/itera-io/provider-jet-taikun.git
+          git clone -b ${{ github.ref_name }} --single-branch https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
           make submodules
           sudo make build
