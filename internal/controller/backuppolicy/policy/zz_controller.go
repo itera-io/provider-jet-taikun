@@ -26,8 +26,8 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
-	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
-	"github.com/crossplane/terrajet/pkg/terraform"
+	tjcontroller "github.com/upbound/upjet/pkg/controller"
+	"github.com/upbound/upjet/pkg/terraform"
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	v1alpha1 "github.com/itera-io/provider-jet-taikun/apis/backuppolicy/v1alpha1"
