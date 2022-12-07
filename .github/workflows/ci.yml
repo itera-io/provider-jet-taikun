@@ -58,9 +58,9 @@ jobs:
           export GO111MODULE=on
           export GOROOT=/usr/local/go
           go env
-          git clone -b ${{ github.ref_name }} --single-branch https://github.com/itera-io/provider-jet-taikun.git
+          git clone https://github.com/itera-io/provider-jet-taikun.git
           cd provider-jet-taikun
-          git branch
+          pwd
           make submodules
           make build
       - name: Lint
