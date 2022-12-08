@@ -30,7 +30,7 @@ jobs:
           USERNAME: ${{ secrets.ITERAREPO_USERNAME }}
           TOKEN: ${{ secrets.ITERAREPO_TOKEN }}
         run: |
-          echo $TOKEN | sudo docker login repo.itera.io:5000 --username $USERNAME --password-stdin
+          echo $TOKEN | docker login repo.itera.io:5000 --username $USERNAME --password-stdin
 
       - name: Checkout
         uses: actions/checkout@v2
