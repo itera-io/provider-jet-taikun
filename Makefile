@@ -2,12 +2,12 @@
 # Setup Project
 
 PROJECT_NAME := provider-jet-taikun
-PROJECT_REPO := github.com/nivraph/$(PROJECT_NAME)
+PROJECT_REPO := github.com/itera-io/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.6
 
 export TERRAFORM_PROVIDER_SOURCE := itera-io/taikun
-export TERRAFORM_PROVIDER_VERSION := 1.4.0
+export TERRAFORM_PROVIDER_VERSION := 1.4.1
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-taikun
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/itera-io/terraform-provider-taikun/releases/download/v1.4.1/
 export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-taikun_v1.4.1
