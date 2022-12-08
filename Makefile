@@ -165,7 +165,7 @@ crossplane.help:
 
 help-special: crossplane.help
 
-test:
+acc-test:
 	./tests/run_tests.sh
 
 .PHONY: crossplane.help help-special
