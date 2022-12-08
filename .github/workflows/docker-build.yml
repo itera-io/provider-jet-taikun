@@ -7,9 +7,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-22.04
-    needs: detect-noop
-    if: needs.detect-noop.outputs.noop != 'true'
-
     steps:
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v1
