@@ -172,7 +172,7 @@ jobs:
           flags: unittests
           file: _output/tests/linux_amd64/coverage.txt
 
-  publish-artifacts:
+  build:
     runs-on: ubuntu-22.04
     needs: detect-noop
     if: needs.detect-noop.outputs.noop != 'true'
@@ -243,6 +243,3 @@ jobs:
         with:
           name: output
           path: _output/**
-
-      - name: Publish Artifacts
-        run: make publish BRANCH_NAME=${GITHUB_REF##*/}
