@@ -55,7 +55,7 @@ GO111MODULE = on
 # ====================================================================================
 # Setup Images
 
-DOCKER_REGISTRY ?= raphidock
+DOCKER_REGISTRY ?= crossplane-provider
 IMAGES = provider-jet-taikun provider-jet-taikun-controller
 -include build/makelib/image.mk
 
