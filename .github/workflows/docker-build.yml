@@ -90,3 +90,4 @@ jobs:
           docker tag $NORMAL_IMG $NORMAL_IMG:$LATEST_TAG
           docker push $CONTROLLER_IMG:$LATEST_TAG
           docker push $NORMAL_IMG:$LATEST_TAG
+          docker logout
