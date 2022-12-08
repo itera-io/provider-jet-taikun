@@ -14,7 +14,7 @@ export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-taikun_v1.4.1
 export TERRAFORM_DOCS_PATH := docs/resources
 export TERRAFORM_PROVIDER_REPO := https://github.com/itera-io/terraform-provider-taikun
 
-PLATFORMS ?= linux_amd64 linux_arm64
+PLATFORMS ?= linux_amd64
 
 # -include will silently skip missing files, which allows us
 # to load those files with a target in the Makefile. If only
@@ -54,7 +54,6 @@ GO111MODULE = on
 
 # ====================================================================================
 # Setup Images
-
 
 DOCKER_REGISTRY ?= crossplane-provider
 IMAGES = provider-jet-taikun provider-jet-taikun-controller
