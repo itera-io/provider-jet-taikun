@@ -2,8 +2,11 @@ name: test-CI
 
 on:
   push:
+    tags:
+      - v*
     branches:
       - main
+      - dev
       - release-*
   pull_request: {}
   workflow_dispatch: {}
