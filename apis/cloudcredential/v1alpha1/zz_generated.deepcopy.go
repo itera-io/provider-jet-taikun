@@ -216,7 +216,7 @@ func (in *CredentialParameters) DeepCopyInto(out *CredentialParameters) {
 	if in.OrganizationIDRef != nil {
 		in, out := &in.OrganizationIDRef, &out.OrganizationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.OrganizationIDSelector != nil {
 		in, out := &in.OrganizationIDSelector, &out.OrganizationIDSelector

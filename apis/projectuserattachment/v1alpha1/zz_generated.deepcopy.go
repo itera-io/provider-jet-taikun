@@ -121,7 +121,7 @@ func (in *UserAttachmentParameters) DeepCopyInto(out *UserAttachmentParameters) 
 	if in.ProjectIDRef != nil {
 		in, out := &in.ProjectIDRef, &out.ProjectIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.ProjectIDSelector != nil {
 		in, out := &in.ProjectIDSelector, &out.ProjectIDSelector
@@ -136,7 +136,7 @@ func (in *UserAttachmentParameters) DeepCopyInto(out *UserAttachmentParameters) 
 	if in.UserIDRef != nil {
 		in, out := &in.UserIDRef, &out.UserIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.UserIDSelector != nil {
 		in, out := &in.UserIDSelector, &out.UserIDSelector

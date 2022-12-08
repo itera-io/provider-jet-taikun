@@ -266,7 +266,7 @@ func (in *ProfileParameters) DeepCopyInto(out *ProfileParameters) {
 	if in.OrganizationIDRef != nil {
 		in, out := &in.OrganizationIDRef, &out.OrganizationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.OrganizationIDSelector != nil {
 		in, out := &in.OrganizationIDSelector, &out.OrganizationIDSelector
@@ -286,7 +286,7 @@ func (in *ProfileParameters) DeepCopyInto(out *ProfileParameters) {
 	if in.SlackConfigurationIDRef != nil {
 		in, out := &in.SlackConfigurationIDRef, &out.SlackConfigurationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SlackConfigurationIDSelector != nil {
 		in, out := &in.SlackConfigurationIDSelector, &out.SlackConfigurationIDSelector

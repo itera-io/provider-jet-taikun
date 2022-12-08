@@ -20,8 +20,7 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
-	tjconfig "github.com/crossplane/terrajet/pkg/config"
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	tjconfig "github.com/upbound/upjet/pkg/config"
 
 	resources "github.com/itera-io/provider-jet-taikun/config/resources"
 )
@@ -34,15 +33,24 @@ const (
 //go:embed schema.json
 var providerSchema string
 
+//go:embed provider-metadata.yaml
+var providerMetadata string
+
 // GetProvider returns provider configuration
 func GetProvider() *tjconfig.Provider {
-	defaultResourceFn := func(name string, terraformResource *schema.Resource, opts ...tjconfig.ResourceOption) *tjconfig.Resource {
-		r := tjconfig.DefaultResource(name, terraformResource)
-		return r
-	}
 
-	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn),
+	pc := tjconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
+		tjconfig.WithDefaultResourceOptions(),
+		tjconfig.WithBasePackages(tjconfig.BasePackages{
+			APIVersion: []string{
+				// Default package for ProviderConfig APIs
+				"apis/v1alpha1",
+			},
+			Controller: []string{
+				// Default package for ProviderConfig controllers
+				"internal/controller/providerconfig",
+			},
+		}),
 		tjconfig.WithIncludeList([]string{
 
 			// Resources

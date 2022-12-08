@@ -4,71 +4,91 @@ on:
   release:
   workflow_dispatch: {}
 
-jobs:
-  build:
-    runs-on: ubuntu-20.04
+env:
+  # Common versions
+  GO_VERSION: "1.19"
+  GOLANGCI_VERSION: "v1.50.0"
+  DOCKER_BUILDX_VERSION: "v0.8.2"
 
+jobs:
+  build-and-push:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v1
+        with:
+          platforms: all
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        with:
+          version: ${{ env.DOCKER_BUILDX_VERSION }}
+          install: true
+
       - name: Login to Itera Docker Container Registry
         env:
           USERNAME: ${{ secrets.ITERAREPO_USERNAME }}
           TOKEN: ${{ secrets.ITERAREPO_TOKEN }}
         run: |
-          echo $TOKEN | sudo docker login repo.itera.io:5000 --username $USERNAME --password-stdin
-      - name: General Setup
-        run: |
-          sudo apt-get update && \
-          sudo apt-get install -yy -q --no-install-recommends \
-          build-essential \
-          ca-certificates \
-          curl \
-          git \
-          jq \
-          lsb-release \
-          make \
-          wget \
-          sudo && \
-          sudo apt-get update && \
-          sudo apt-get upgrade -y && \
-          sudo apt-get autoremove -y && \
-          sudo apt-get clean
-      - name: Docker Install
-        run: |
-          sudo apt install runc
-          sudo apt install containerd
-          sudo apt-get install docker.io -y
-          sudo snap install docker
-          sudo systemctl status docker
-      - name: Go Set up
-        run: |
-          GO_VERSION=1.17.5 && \
-          GO_HASH=bd78114b0d441b029c8fe0341f4910370925a4d270a6a590668840675b0c653e && \
-          curl -fsSL https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz -o golang.tar.gz && \
-          echo "${GO_HASH}  golang.tar.gz" | sha256sum -c - && \
-          sudo tar -C /usr/local -xzf golang.tar.gz && \
-          rm golang.tar.gz
-          PATH=/usr/local/go/bin:$PATH
-      - name: Build provider's images
-        run: |
-          git clone https://github.com/itera-io/provider-jet-taikun.git
-          cd provider-jet-taikun
-          echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $GITHUB_ENV
-          make submodules
-          sudo make build BUILD_REGISTRY="repo.itera.io:5000/crossplane-provider"
+          echo $TOKEN | docker login repo.itera.io:5000 --username $USERNAME --password-stdin
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Fetch History
+        run: git fetch --prune --unshallow
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Find the Go Build Cache
+        id: go
+        run: echo "::set-output name=cache::$(make go.cachedir)"
+
+      - name: Cache the Go Build Cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.go.outputs.cache }}
+          key: ${{ runner.os }}-build-publish-artifacts-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-build-publish-artifacts-
+
+      - name: Cache Go Dependencies
+        uses: actions/cache@v2
+        with:
+          path: .work/pkg
+          key: ${{ runner.os }}-pkg-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-pkg-
+
+      - name: Vendor Dependencies
+        run: make vendor vendor.check
+
+      - name: Build Artifacts
+        run: make -j2 build.all BUILD_REGISTRY="repo.itera.io:5000/crossplane-provider"
+        env:
+          # We're using docker buildx, which doesn't actually load the images it
+          # builds by default. Specifying --load does so.
+          BUILD_ARGS: "--load"
+
+      - name: Upload Artifacts to GitHub
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: _output/**
+
       - name: Push provider's images
         env:
           CONTROLLER_IMG: "repo.itera.io:5000/crossplane-provider/provider-jet-taikun-controller-amd64"
           NORMAL_IMG: "repo.itera.io:5000/crossplane-provider/provider-jet-taikun-amd64"
           LATEST_TAG: "latest"
         run: |
-          echo $LATEST_TAG
-          echo $CONTROLLER_IMG
-          echo $NORMAL_IMG
+          docker images
           docker tag $CONTROLLER_IMG $CONTROLLER_IMG:$LATEST_TAG
           docker tag $NORMAL_IMG $NORMAL_IMG:$LATEST_TAG
-          sudo docker push $CONTROLLER_IMG:$LATEST_TAG
-          sudo docker push $NORMAL_IMG:$LATEST_TAG
+          docker push $CONTROLLER_IMG:$LATEST_TAG
+          docker push $NORMAL_IMG:$LATEST_TAG
+      - name: Docker logout
+        run: docker logout

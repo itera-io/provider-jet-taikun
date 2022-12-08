@@ -131,7 +131,7 @@ func (in *CredentialGCPParameters) DeepCopyInto(out *CredentialGCPParameters) {
 	if in.BillingAccountIDRef != nil {
 		in, out := &in.BillingAccountIDRef, &out.BillingAccountIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.BillingAccountIDSelector != nil {
 		in, out := &in.BillingAccountIDSelector, &out.BillingAccountIDSelector
@@ -171,7 +171,7 @@ func (in *CredentialGCPParameters) DeepCopyInto(out *CredentialGCPParameters) {
 	if in.OrganizationIDRef != nil {
 		in, out := &in.OrganizationIDRef, &out.OrganizationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.OrganizationIDSelector != nil {
 		in, out := &in.OrganizationIDSelector, &out.OrganizationIDSelector

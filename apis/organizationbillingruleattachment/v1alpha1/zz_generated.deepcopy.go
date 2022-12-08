@@ -121,7 +121,7 @@ func (in *BillingRuleAttachmentParameters) DeepCopyInto(out *BillingRuleAttachme
 	if in.BillingRuleIDRef != nil {
 		in, out := &in.BillingRuleIDRef, &out.BillingRuleIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.BillingRuleIDSelector != nil {
 		in, out := &in.BillingRuleIDSelector, &out.BillingRuleIDSelector
@@ -141,7 +141,7 @@ func (in *BillingRuleAttachmentParameters) DeepCopyInto(out *BillingRuleAttachme
 	if in.OrganizationIDRef != nil {
 		in, out := &in.OrganizationIDRef, &out.OrganizationIDRef
 		*out = new(v1.Reference)
-		**out = **in
+		(*in).DeepCopyInto(*out)
 	}
 	if in.OrganizationIDSelector != nil {
 		in, out := &in.OrganizationIDSelector, &out.OrganizationIDSelector
