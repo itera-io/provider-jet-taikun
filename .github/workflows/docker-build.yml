@@ -4,6 +4,12 @@ on:
   release:
   workflow_dispatch: {}
 
+env:
+  # Common versions
+  GO_VERSION: "1.19"
+  GOLANGCI_VERSION: "v1.50.0"
+  DOCKER_BUILDX_VERSION: "v0.8.2"
+
 jobs:
   build-and-push:
     runs-on: ubuntu-22.04
@@ -72,9 +78,6 @@ jobs:
         with:
           name: output
           path: _output/**
-
-      - name: Publish Artifacts
-        run: make publish BRANCH_NAME=${GITHUB_REF##*/}
 
       - name: Push provider's images
         env:
