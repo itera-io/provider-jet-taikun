@@ -16,7 +16,7 @@ jobs:
     needs: detect-noop
     env:
       KUBECONFIG: ${{ secrets.KUBECONFIG }}
-    if: needs.detect-noop.outputs.noop != 'true' && secrets.KUBECONFIG != ''
+    if: needs.detect-noop.outputs.noop != 'true'
 
     steps:
       - name: Checkout
