@@ -126,7 +126,9 @@ jobs:
   acceptance-tests:
     runs-on: ubuntu-22.04
     needs: detect-noop
-    if: needs.detect-noop.outputs.noop != 'true'
+    env:
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}
+    if: needs.detect-noop.outputs.noop != 'true' && {{ secrets.KUBECONFIG }} != ''
 
     steps:
       - name: Checkout
@@ -162,6 +164,17 @@ jobs:
 
       - name: Vendor Dependencies
         run: make vendor vendor.check
+
+      - name: Kubectl Install
+        uses: azure/setup-kubectl@v3
+        with:
+          version: "latest" # default is latest stable
+        id: install
+
+      - name: Setup Cluster Config
+        run: |
+          echo $KUBECONFIG > $HOME/.kube/config
+          export KUBECONFIG=$HOME/.kube/config
 
       - name: Run Acceptance Tests
         run: make acc-test
