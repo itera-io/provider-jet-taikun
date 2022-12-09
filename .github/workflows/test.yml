@@ -77,7 +77,7 @@ jobs:
           touch $HOME/.kube/config
           echo $KUBECONFIG > $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
-          Kubectl get all -n crossplane-system
+          kubectl get all -n crossplane-system
 
       - name: Install Provider
         run: make install
