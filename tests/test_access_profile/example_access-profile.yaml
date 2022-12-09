@@ -8,4 +8,4 @@ spec:
     organizationIdRef:
         name: "ORGANIZATION_REF"
   providerConfigRef:
-    name: default 
+    name: PROVIDER

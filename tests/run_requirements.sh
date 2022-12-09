@@ -7,13 +7,16 @@ cp example_required-test-user.yaml required-test-user.yaml
 cp example_required-test-kubernetes-profile.yaml required-test-kubernetes-profile.yaml
 cp example_required-test-cloud-credential.yaml required-test-cloud-credential.yaml
 
+cp example_get_cloud_ref.sh get_cloud_ref.sh
+cp example_get_organization_ref.sh get_organization_ref.sh
+cp example_get_user_ref.sh get_user_ref.sh
 
 find required* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
-find test_* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
+#find test_* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
 
 find get_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
 find required* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
-find test_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
+#find test_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
 
 #echo -n "test-USER_TEST-org-attachach" > ref
 
