@@ -46,6 +46,7 @@ while read curr; do
         kubectl delete -f required-test-kubernetes-profile.yaml
         kubectl delete -f required-test-user.yaml
         kubectl delete -f required-test-organization.yaml
+        rm get*
         rm required*
         rm secret*
 
