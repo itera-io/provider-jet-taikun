@@ -176,6 +176,9 @@ jobs:
           echo $KUBECONFIG > $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
 
+      - name: Install Provider
+        run: make install
+
       - name: Run Acceptance Tests
         run: make acc-test
 
