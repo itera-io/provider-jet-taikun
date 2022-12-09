@@ -8,7 +8,9 @@ on:
       - main
       - dev
       - release-*
-  pull_request: {}
+  pull_request:
+    branches:
+      - main
   workflow_dispatch: {}
 
 env:
