@@ -73,6 +73,8 @@ jobs:
 
       - name: Setup Cluster Config
         run: |
+          mkkdir $HOME/.kube
+          touch $HOME/.kube/config
           echo $KUBECONFIG > $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
 
