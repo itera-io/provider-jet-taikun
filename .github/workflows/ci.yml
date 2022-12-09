@@ -123,7 +123,7 @@ jobs:
       - name: Check Diff
         run: make check-diff
 
-  unit-tests:
+  acceptance-tests:
     runs-on: ubuntu-22.04
     needs: detect-noop
     if: needs.detect-noop.outputs.noop != 'true'
@@ -163,14 +163,8 @@ jobs:
       - name: Vendor Dependencies
         run: make vendor vendor.check
 
-      - name: Run Unit Tests
-        run: make -j2 test
-
-      - name: Publish Unit Test Coverage
-        uses: codecov/codecov-action@v1
-        with:
-          flags: unittests
-          file: _output/tests/linux_amd64/coverage.txt
+      - name: Run Acceptance Tests
+        run: make acc-test
 
   build:
     runs-on: ubuntu-22.04
