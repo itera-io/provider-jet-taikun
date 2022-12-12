@@ -3,7 +3,7 @@
 source data.sh
 cp example_"$RESOURCE".yaml $DEST
 
-sed -i "s^PROVIDER^$PROVIDER_NAME^g" $DEST
+sed -i "s/PROVIDER/$PROVIDER_NAME/g" $DEST
 
 sed -i "s/ALERTING/$CP_ALERT_NAME/g" $DEST
 sed -i "s/EMAIL/$CP_ALERT_EMAIL/g" $DEST
