@@ -41,6 +41,8 @@ while read curr; do
     then
         cd ..
         rm .out*
+        kubectl delete -f required-test-billing-rule.yaml
+        kubectl delete -f required-test-billing-credential.yaml
         kubectl delete -f required-test-cloud-credential.yaml
         kubectl delete -f secret_cloud.yaml
         kubectl delete -f required-test-kubernetes-profile.yaml
@@ -58,6 +60,9 @@ while read curr; do
 done < ".out_test"
 
 rm .out*
+
+kubectl delete -f required-test-billing-rule.yaml
+kubectl delete -f required-test-billing-credential.yaml
 
 kubectl delete -f required-test-cloud-credential.yaml
 kubectl delete -f secret_cloud.yaml
