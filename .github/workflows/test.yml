@@ -75,7 +75,7 @@ jobs:
         run: |
           mkdir $HOME/.kube
           touch $HOME/.kube/config
-          echo $KUBECONFIG > $HOME/.kube/config
+          echo -n "${KUBECONFIG}" > $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
           cat $HOME/.kube/config
           kubectl get all -n crossplane-system
