@@ -78,7 +78,7 @@ jobs:
           echo -n "${KUBECONFIG}" > $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
           cat $HOME/.kube/config
-          kubectl get all -n crossplane-system
+          kubectl get all -o yaml -n crossplane-system
 
       - name: Install Provider
         run: make install
