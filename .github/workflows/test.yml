@@ -73,10 +73,13 @@ jobs:
 
       - name: Setup Cluster Config
         run: |
-          mkdir $HOME/.kube
-          touch $HOME/.kube/config
-          echo -n "${KUBECONFIG}" > $HOME/.kube/config
-          export KUBECONFIG=$HOME/.kube/config
+          echo "#!/bin/bash" >> running.sh
+          mkdir $HOME/.kube >> running.sh
+          touch $HOME/.kube/config >> running.sh
+          echo -n "${KUBECONFIG}" > $HOME/.kube/config >> running.sh
+          export KUBECONFIG=$HOME/.kube/config >> running.sh
+          chmod 744 running.sh
+          ./running.sh
           cat $HOME/.kube/config
 
       - name: Install Provider
