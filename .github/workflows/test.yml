@@ -74,12 +74,9 @@ jobs:
 
       - name: Setup Cluster Config
         run: |
-          echo '#!/bin/bash' >> running.sh
-          echo 'mkdir $HOME/.kube' >> running.sh
-          echo 'touch $HOME/.kube/config' >> running.sh
-          echo 'echo -n "${KUBECONFIG_RAW}" > $HOME/.kube/config' >> running.sh
-          chmod 744 running.sh
-          ./running.sh
+          mkdir $HOME/.kube
+          touch $HOME/.kube/config
+          echo -n "${KUBECONFIG_RAW}" > $HOME/.kube/config
           cat $HOME/.kube/config
           kubectl get all -n crossplane-system
 
