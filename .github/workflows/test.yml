@@ -96,4 +96,6 @@ jobs:
       - name: Run Acceptance Tests
         run: |
           export KUBECONFIG=$HOME/.kube/config
+          make generate
+          kubectl apply -f package/crds
           make acc-test
