@@ -78,6 +78,7 @@ jobs:
           touch $HOME/.kube/config
           echo -n "${KUBECONFIG_RAW}" > $HOME/.kube/config
           cat $HOME/.kube/config
+          export KUBECONFIG='$HOME/.kube/config'
           kubectl get all -n crossplane-system
 
       - name: Install Provider
