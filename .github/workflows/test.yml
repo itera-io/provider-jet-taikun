@@ -77,12 +77,13 @@ jobs:
           mkdir $HOME/.kube
           touch $HOME/.kube/config
           echo -n "${KUBECONFIG_RAW}" > $HOME/.kube/config
-          cat $HOME/.kube/config
           export KUBECONFIG=$HOME/.kube/config
           kubectl get all -n crossplane-system
 
       - name: Install Provider
-        run: make install
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+          make install
 
       - name: Run Acceptance Tests
         run: make acc-test
