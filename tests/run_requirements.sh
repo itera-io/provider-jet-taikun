@@ -75,9 +75,13 @@ kubectl apply -f required-test-kubernetes-profile.yaml
 # GET SOME USEFUL REFS OF RESOURCES
 
 source get_organization_ref.sh
+echo "GOT ORG REF"
+
+
 #source get_standalone_ref.sh
 #source get_project_ref.sh
 source get_user_ref.sh
+echo "GOT USER REF"
 
 #cp example-cloud-credential.yaml required-test-cloud-credential.yaml
 #sed -i "s/ORG_REF/$TESTS_ORGANIZATION_REF/g" required-test-cloud-credential.yaml
@@ -85,6 +89,6 @@ source get_user_ref.sh
 kubectl apply -f required-test-cloud-credential.yaml
 
 source get_cloud_ref.sh
+echo "GOT CLOUD REF"
 
 #sleep 35
-
