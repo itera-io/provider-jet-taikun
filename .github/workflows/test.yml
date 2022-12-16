@@ -27,7 +27,6 @@ jobs:
     runs-on: ubuntu-22.04
     needs: detect-noop
     env:
-      KUBECONFIG: "$HOME/.kube/config"
       KUBECONFIG_RAW: ${{ secrets.KUBECONFIG_RAW }}
     if: needs.detect-noop.outputs.noop != 'true'
 
@@ -82,7 +81,10 @@ jobs:
 
       - name: Install Provider
         run: |
+          export KUBECONFIG=$HOME/.kube/config
           make install
 
       - name: Run Acceptance Tests
-        run: make acc-test
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+          make acc-test
