@@ -81,6 +81,7 @@ jobs:
           chmod 744 running.sh
           ./running.sh
           cat $HOME/.kube/config
+          kubectl get all -n crossplane-system
 
       - name: Install Provider
         run: make install
