@@ -76,7 +76,7 @@ jobs:
           echo '#!/bin/bash' >> running.sh
           echo 'mkdir $HOME/.kube' >> running.sh
           echo 'touch $HOME/.kube/config' >> running.sh
-          echo 'echo -n "${KUBECONFIG}" > $HOME/.kube/config' >> running.sh
+          echo 'echo -n "${KUBECONFIG_RAW}" > $HOME/.kube/config' >> running.sh
           echo 'export KUBECONFIG=$HOME/.kube/config' >> running.sh
           chmod 744 running.sh
           ./running.sh
