@@ -105,9 +105,9 @@ echo "GOT USER REF"
 #cp example-cloud-credential.yaml required-test-cloud-credential.yaml
 #sed -i "s/ORG_REF/$TESTS_ORGANIZATION_REF/g" required-test-cloud-credential.yaml
 
-kubectl apply -f required-test-cloud-credential.yaml
+#kubectl apply -f required-test-cloud-credential.yaml
 
-source get_cloud_ref.sh
-echo "GOT CLOUD REF"
+#source get_cloud_ref.sh
+#echo "GOT CLOUD REF"
 
 #sleep 35
