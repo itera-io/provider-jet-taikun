@@ -2,6 +2,20 @@
 
 export JUMP_TIME=2
 
+# CREATE PROVIDER CONFIG AND ITS SECRET
+
+cp example_secret_provider.yaml secret_provider.yaml
+cp example_provider_config.yaml required-provider_config.yaml
+
+sed -i "s^TAIKUN_EMAIL^$TAIKUN_EMAIL^g" secret_provider.yaml &> /dev/null
+sed -i "s^TAIKUN_PASSWORD^$TAIKUN_PASSWORD^g" secret_provider.yaml &> /dev/null
+sed -i "s^PROVIDER^$PROVIDER_NAME^g" required-provider_config.yaml &> /dev/null
+
+kubectl apply -f secret_provider.yaml
+kubectl apply -f required-provider_config.yaml
+
+# REQUIRED RESOURCES
+
 cp example_required-test-organization.yaml required-test-organization.yaml
 cp example_required-test-billing-credential.yaml required-test-billing-credential.yaml
 cp example_required-test-billing-rule.yaml required-test-billing-rule.yaml
@@ -10,11 +24,14 @@ cp example_required-test-kubernetes-profile.yaml required-test-kubernetes-profil
 cp example_required-test-cloud-credential.yaml required-test-cloud-credential.yaml
 
 
+# SCRIPTS
 
 cp example_get_cloud_ref.sh get_cloud_ref.sh
 cp example_get_organization_ref.sh get_organization_ref.sh
 cp example_get_user_ref.sh get_user_ref.sh
 
+
+# SUBSTITUTIONS
 
 find required* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
 #find test_* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
