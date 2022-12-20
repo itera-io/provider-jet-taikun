@@ -11,8 +11,10 @@ sed -i "s^TAIKUN_EMAIL^$TAIKUN_EMAIL^g" secret_provider.yaml &> /dev/null
 sed -i "s^TAIKUN_PASSWORD^$TAIKUN_PASSWORD^g" secret_provider.yaml &> /dev/null
 sed -i "s^PROVIDER^$PROVIDER_NAME^g" required-provider_config.yaml &> /dev/null
 
+kubectl apply -f install.yaml
 kubectl apply -f secret_provider.yaml
 kubectl apply -f required-provider_config.yaml
+
 
 # REQUIRED RESOURCES
 

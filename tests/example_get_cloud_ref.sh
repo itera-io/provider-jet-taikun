@@ -7,7 +7,7 @@ YELLOW='\033[0;33m'
 
 printf "\n=== TESTING ${YELLOW}cloud-credential${WHITE}\n"
 
-WAITING=938
+WAITING=185
 COUNT=0
 COUNT_LIMIT=$(($WAITING / $JUMP_TIME))
 REF=""

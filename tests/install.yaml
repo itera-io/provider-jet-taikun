@@ -1,0 +1,19 @@
+---
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: jet-taikun-config
+  labels:
+    app: crossplane-provider-jet-taikun
+spec:
+  image: repo.itera.io:5000/crossplane-provider/provider-jet-taikun-controller-amd64:latest
+  args: ["-d"]
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: crossplane-provider-jet-taikun
+spec:
+  package: repo.itera.io:5000/crossplane-provider/provider-jet-taikun-amd64:latest
+  controllerConfigRef:
+    name: jet-taikun-config
