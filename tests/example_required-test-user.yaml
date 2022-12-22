@@ -1,13 +1,13 @@
 apiVersion: user.taikun.jet.crossplane.io/v1alpha1
 kind: User
 metadata:
-    name: test-USER_TEST-useratt
+    name: ts--USER_TEST-useratt
 spec:
   forProvider:
-    userName: "test-USER_TEST-useratt"
-    email: "USER_TEST@delete.com"
+    userName: "ts--USER_TEST-useratt"
+    email: "ts--USER_TEST@delete.com"
     role: "Manager"
     organizationIdRef:
-        name: "test-USER_TEST-org-attach"
+        name: "ts--USER_TEST-org-attach"
   providerConfigRef:
     name: PROVIDER 

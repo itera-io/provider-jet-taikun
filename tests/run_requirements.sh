@@ -97,10 +97,10 @@ kubectl apply -f required-test-kubernetes-profile.yaml
 
 source get_organization_ref.sh
 
-
 #source get_standalone_ref.sh
 #source get_project_ref.sh
 source get_user_ref.sh
+
 
 #cp example-cloud-credential.yaml required-test-cloud-credential.yaml
 #sed -i "s/ORG_REF/$TESTS_ORGANIZATION_REF/g" required-test-cloud-credential.yaml
@@ -108,5 +108,6 @@ source get_user_ref.sh
 kubectl apply -f required-test-cloud-credential.yaml
 
 source get_cloud_ref.sh
+
 
 #sleep 35

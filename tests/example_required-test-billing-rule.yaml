@@ -1,12 +1,12 @@
 apiVersion: billingrule.taikun.jet.crossplane.io/v1alpha1
 kind: Rule
 metadata:
-  name: test-USER_TEST-bill-r
+  name: ts--USER_TEST-bill-r
 spec:
   forProvider:
-    name: "test-USER_TEST-bill-r"
+    name: "ts--USER_TEST-bill-r"
     billingCredentialIdRef:
-        name: "test-USER_TEST-billi-c"
+        name: "ts--USER_TEST-billi-c"
     label:
       - key: "label"
         value: "value"

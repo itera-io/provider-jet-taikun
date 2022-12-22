@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WAITING=185
+WAITING=338
 COUNT=0
 COUNT_LIMIT=$(($WAITING / $JUMP_TIME))
 REF=""
@@ -17,7 +17,7 @@ do
     fi
 
     kubectl get managed > out_raw
-    grep "test-$TAIKUN_USER-org-attach" "out_raw" > out
+    grep "ts--$TAIKUN_USER-org-attach" "out_raw" > out
     CONTENT=`cat out`
 
     READY=`grep -o True out | wc -l`
