@@ -77,5 +77,6 @@ rm get*
 rm required*
 rm secret*
 
+
 printf "\n${GREEN}TESTSUITE PASSED SUCCESSFULLY !!!${WHITE}\n\n"
 exit 0
