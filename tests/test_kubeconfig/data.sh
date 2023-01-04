@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source config.sh
+
+RESOURCE="kubeconfig"
+RESOURCE_NAME=test-"$RESOURCE"
+DEST=$PRE$RESOURCE$END
+WAITING=180
+
+export CP_KUBECONFIG_NAME="ts-kc-$TAIKUN_USER-$RANDOM"
+echo -n "$CP_KUBECONFIG_NAME" > ref
+export CP_KUBECONFIG_SCOPE="managers"
+export CP_KUBECONFIG_ROLE="edit"
+export CP_KUBECONFIG_NAMESPACE="default"
+export CP_KUBECONFIG_VALIDITY=138
+export CP_KUBECONFIG_PROJECT="ts-$TAIKUN_USER-project"
+export CP_KUBECONFIG_USER="ts-$TAIKUN_USER-useratt"

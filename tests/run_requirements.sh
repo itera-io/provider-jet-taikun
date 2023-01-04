@@ -21,6 +21,7 @@ cp example_required-test-showback-credential.yaml required-test-showback-credent
 cp example_required-test-user.yaml required-test-user.yaml
 cp example_required-test-kubernetes-profile.yaml required-test-kubernetes-profile.yaml
 cp example_required-test-cloud-credential.yaml required-test-cloud-credential.yaml
+cp example_required-test-project.yaml required-test-project.yaml
 
 
 # SCRIPTS
@@ -28,6 +29,7 @@ cp example_required-test-cloud-credential.yaml required-test-cloud-credential.ya
 cp example_get_cloud_ref.sh get_cloud_ref.sh
 cp example_get_organization_ref.sh get_organization_ref.sh
 cp example_get_user_ref.sh get_user_ref.sh
+cp example_get_project_ref.sh get_project_ref.sh
 
 
 # SUBSTITUTIONS
@@ -77,8 +79,6 @@ kubectl apply -f required-test-showback-credential.yaml
 #kubectl apply -f required-test-standalone-profile.yaml
 kubectl apply -f required-test-kubernetes-profile.yaml
 
-#kubectl apply -f required-test-project.yaml
-
 
 # GET SOME USEFUL REFS OF RESOURCES
 
@@ -90,7 +90,11 @@ source get_user_ref.sh
 
 
 kubectl apply -f required-test-cloud-credential.yaml
-
 source get_cloud_ref.sh
+
+
+kubectl apply -f required-test-project.yaml
+#source get_project_ref.sh
+sleep 600
 
 #sleep 35

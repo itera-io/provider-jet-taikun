@@ -30,6 +30,7 @@ while read curr; do
         kubectl delete -f required-test-kubernetes-profile.yaml
         kubectl delete -f required-test-user.yaml
         kubectl delete -f required-test-organization.yaml
+        kubectl delete -f required-test-project.yaml
         rm get*
         rm required*
         rm secret*
@@ -43,16 +44,18 @@ done < ".out_test"
 
 rm .out*
 
-#kubectl delete -f required-test-billing-rule.yaml
-#kubectl delete -f required-test-billing-credential.yaml
-#kubectl delete -f required-test-showback-credential.yaml
+kubectl delete -f required-test-billing-rule.yaml
+kubectl delete -f required-test-billing-credential.yaml
+kubectl delete -f required-test-showback-credential.yaml
 
-#kubectl delete -f required-test-cloud-credential.yaml
-#kubectl delete -f secret_cloud.yaml
+kubectl delete -f required-test-cloud-credential.yaml
+kubectl delete -f secret_cloud.yaml
 
-#kubectl delete -f required-test-kubernetes-profile.yaml
-#kubectl delete -f required-test-user.yaml
-#kubectl delete -f required-test-organization.yaml
+kubectl delete -f required-test-kubernetes-profile.yaml
+kubectl delete -f required-test-user.yaml
+kubectl delete -f required-test-organization.yaml
+
+kubectl delete -f required-test-project.yaml
 
 kubectl delete -f secret_cloud.yaml
 
