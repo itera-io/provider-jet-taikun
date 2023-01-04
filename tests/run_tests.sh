@@ -73,10 +73,11 @@ rm .out*
 #kubectl delete -f required-test-user.yaml
 #kubectl delete -f required-test-organization.yaml
 
+kubectl delete -f secret_cloud.yaml
+
 rm get*
 rm required*
 rm secret*
-
 
 printf "\n${GREEN}TESTSUITE PASSED SUCCESSFULLY !!!${WHITE}\n\n"
 exit 0
