@@ -11,11 +11,6 @@ sed -i "s^TAIKUN_EMAIL^$TAIKUN_EMAIL^g" secret_provider.yaml &> /dev/null
 sed -i "s^TAIKUN_PASSWORD^$TAIKUN_PASSWORD^g" secret_provider.yaml &> /dev/null
 sed -i "s^PROVIDER^$PROVIDER_NAME^g" required-provider_config.yaml &> /dev/null
 
-#kubectl apply -f install.yaml
-#kubectl apply -f secret_provider.yaml
-#kubectl apply -f required-provider_config.yaml
-
-
 
 # REQUIRED RESOURCES
 
@@ -38,15 +33,9 @@ cp example_get_user_ref.sh get_user_ref.sh
 # SUBSTITUTIONS
 
 find required* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
-#find test_* -type f -exec sed -i "s^PROVIDER^$PROVIDER_NAME^g" {} \; &> /dev/null
-
-#find get_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
 find required* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
-#find test_* -type f -exec sed -i "s^USER_TEST^$TAIKUN_USER^g" {} \; &> /dev/null
 find required* -type f -exec sed -i "s^PROMETHEUS_USERNAME^$PROMETHEUS_USER^g" {} \; &> /dev/null
 
-
-#echo -n "test-USER_TEST-org-attachach" > ref
 
 # CREATE SECRET FOR OPENSTACK CLOUD PASSWORD
 cp example_secret_cloud.yaml secret_cloud.yaml
@@ -83,8 +72,6 @@ kubectl apply -f required-test-user.yaml
 kubectl apply -f required-test-billing-credential.yaml
 kubectl apply -f required-test-billing-rule.yaml
 
-#kubectl apply -f required-test-billing-credential.yaml
-#kubectl apply -f required-test-billing-rule.yaml
 kubectl apply -f required-test-showback-credential.yaml
 
 #kubectl apply -f required-test-standalone-profile.yaml
@@ -102,12 +89,8 @@ source get_organization_ref.sh
 source get_user_ref.sh
 
 
-#cp example-cloud-credential.yaml required-test-cloud-credential.yaml
-#sed -i "s/ORG_REF/$TESTS_ORGANIZATION_REF/g" required-test-cloud-credential.yaml
-
 kubectl apply -f required-test-cloud-credential.yaml
 
 source get_cloud_ref.sh
-
 
 #sleep 35

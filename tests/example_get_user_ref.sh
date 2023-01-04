@@ -17,12 +17,9 @@ do
         exit 1
     fi
 
-    #REF=`cat ref`
     kubectl get managed > out_raw
     grep "ts-$TAIKUN_USER-user" "out_raw" > out
     CONTENT=`cat out`
-
-    #echo "$CONTENT"
 
     READY=`grep -o True out | wc -l`
 
@@ -43,10 +40,7 @@ do
     sleep $JUMP_TIME
 done
 
-#echo $REF
-
 export TESTS_USER_REF=$REF
 
 rm out_raw
 rm out
-#rm ref
