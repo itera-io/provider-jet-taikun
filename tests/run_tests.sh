@@ -59,6 +59,7 @@ rm .out*
 
 kubectl delete -f secret_cloud.yaml
 
+
 rm get*
 rm required*
 rm secret*
