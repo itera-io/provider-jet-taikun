@@ -94,5 +94,6 @@ source get_cloud_ref.sh
 
 #kubectl apply -f required-test-project.yaml
 #source get_project_ref.sh
+#sleep 600
 
 #sleep 35
