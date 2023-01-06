@@ -93,7 +93,7 @@ jobs:
         run: |
           export KUBECONFIG=$HOME/.kube/config
           make install
-      - name: Run Acceptance Tests
+      - name: Run Tests
         run: |
           export KUBECONFIG=$HOME/.kube/config
           make generate
