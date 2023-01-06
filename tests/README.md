@@ -23,5 +23,5 @@ Export the following environment variables:
 Once you have exported the required variables, just run:
 
 ```
-make test
+make testsuite
 ```
