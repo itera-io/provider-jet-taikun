@@ -23,7 +23,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           paths_ignore: '["**.md", "**.png", "**.jpg"]'
           do_not_skip: '["workflow_dispatch", "schedule", "push"]'
-  acceptance-tests:
+  testsuite:
     runs-on: ubuntu-22.04
     needs: detect-noop
     env:
@@ -98,4 +98,4 @@ jobs:
           export KUBECONFIG=$HOME/.kube/config
           make generate
           kubectl apply -f package/crds
-          make acc-test
+          make testsuite
